@@ -1,23 +1,15 @@
 'use strict'
 
 function solveEquation(a, b, c) {
-  let arr = {};
-  if (a == 0) {
-    return folse;
-  }
-  let D = Math.pow(b, 2) - 4 * a * c;
-  arr = D;
-
-  if (D < 0) {
+  let arr = [];
+  let d = Math.pow(b, 2) - 4 * a * c;
+  if (d < 0) {
     arr = [];
-  }
-  if (D == 0) {
+  } else if (d == 0) {
     arr = [-b / (2 * a)];
-  } else if (D > 0) {
-    let tmp = [];
-    tmp.push((-b + Math.sqrt(D)) / (2 * a));
-    tmp.push((-b - Math.sqrt(D)) / (2 * a));
-    arr = tmp;
+  } else if (d > 0) {
+    arr.push((-b + Math.sqrt(d)) / (2 * a));
+    arr.push((-b - Math.sqrt(d)) / (2 * a));
   }
 
   return arr; // array
