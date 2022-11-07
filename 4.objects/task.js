@@ -4,9 +4,6 @@ function Student(name, gender, age) {
     this.age = age;
 }
 
-let student1 = new Student("Tony", "male", 37);
-let student2 = new Student("Buzz", "female", 35);
-
 Student.prototype.setSubject = function (subjectName) {
   this.subject = subjectName;
 }
@@ -20,7 +17,11 @@ Student.prototype.addMark = function (mark) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-  this.marks.push(...marks);
+  if(this.marks === undefined){
+    this.marks = [...marks];
+  } else {
+    this.marks.push(...marks);
+  }
 }
 
 Student.prototype.getAverage = function () {
