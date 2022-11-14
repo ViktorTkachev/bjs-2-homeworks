@@ -66,7 +66,8 @@ class Library {
 
   addBook (book) {
     this.books.push(book);
-    if (this._state < 30) {
+    let lastBook = this.books.length - 1;
+    if (this.books[lastBook].state < 30) {
       this.books.pop(book);
     }
   }
