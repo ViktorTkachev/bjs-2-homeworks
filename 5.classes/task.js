@@ -12,9 +12,13 @@ class PrintEditionItem {
   }
 
   set state (number) {
-    (number <= 0) ? this._state = 0 :
-    (number >= 100) ? this._state = 100 :
-    this._state = number;
+    if (number <= 0) {
+      this._state = 0
+    } else if (number >= 100) {
+      this._state = 100
+    } else {
+      this._state = number;
+    }
   }
 
   get state () {
@@ -84,12 +88,14 @@ class Library {
 
   giveBookByName (bookName) {
     for (var i = 0; i < this.books.length; i++) {
+
       if (this.books[i].name === bookName){
+        let findBook = this.books[i];
         this.books.splice(i,1);
-      } else if (this.books[i].name !== bookName && i === this.books.length - 1) {
-        return null;
+        return findBook;
       }
     }
+    return null;
   }
 
 }
