@@ -76,26 +76,15 @@ class Library {
     }
   }
 
-  findBookBy (type, value) {
-    for (var i = 0; i < this.books.length; i++) {
-      if (this.books[i][type] === value){
-        return this.books[i];
-      } else if (this.books[i][type] !== value && i === this.books.length - 1) {
-        return null;
-      }
+  findBookBy(type, value) {
+      const findResult = this.books.find((item) => item[type] === value);
+      return findResult || null;
     }
-  }
 
-  giveBookByName (bookName) {
-    for (var i = 0; i < this.books.length; i++) {
-
-      if (this.books[i].name === bookName){
-        let findBook = this.books[i];
-        this.books.splice(i,1);
-        return findBook;
-      }
+    giveBookByName(bookName) {
+      const findResult = this.books.find((item) => item.name === bookName);
+      this.books = this.books.filter((item) => item.name !== bookName);
+      return findResult || null;
     }
-    return null;
-  }
 
 }
