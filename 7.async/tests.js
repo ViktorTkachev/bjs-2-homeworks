@@ -1,7 +1,5 @@
 describe('Домашнее задание к лекции 7 «Асинхронность»', () => {
 
-  let clock;
-
   beforeEach(function(){
     clock = new AlarmClock();
   })
@@ -30,6 +28,7 @@ describe('Домашнее задание к лекции 7 «Асинхронн
     clock.addClock("16:45", f => f, 1);
     clock.start();
     expect(clock.timerId).toBeDefined();
+    clock.stop();
   });
 
   it('будильник должен возвращать время в формате HH:MM', () => {
